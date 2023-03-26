@@ -3,7 +3,7 @@ What are you looking here?
 # Start It
 
 ```
-docker-compose up
+docker-compose up --build
 ```
 
 ```

@@ -3,7 +3,8 @@ const app = express()
 const port = 3000;
 
 app.get("/", (req,res) => {
-    console.log("Receiving root request access")
+    console.log(req.headers)
+    console.log("log after header")
     res.send("hello world")
 })
 
