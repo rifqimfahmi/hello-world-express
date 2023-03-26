@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express()
-const port = 3000;
+const port = process.env.PORT;
 
 app.get("/", (req,res) => {
     console.log(req.headers)
-    console.log("log after header")
+    console.log(`Hello port ${port}`)
     res.send("hello world")
 })
 
