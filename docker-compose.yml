@@ -13,7 +13,7 @@ services:
       - PORT=3001
     ports:
       - "3001:3001"
-  nginx:
+  load_balancer:
     build:
       context: .
       dockerfile: ./reverse-proxy/Dockerfile
