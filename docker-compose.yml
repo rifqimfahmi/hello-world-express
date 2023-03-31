@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   server1:
-    build: 
+    build:
       context: ./backend
       dockerfile: ./Dockerfile
     environment:
@@ -10,7 +10,7 @@ services:
     ports:
       - "3000:3000"
   server2:
-    build: 
+    build:
       context: ./backend
       dockerfile: ./Dockerfile
     environment:
@@ -25,7 +25,18 @@ services:
       - "80:80"
     volumes:
       - ./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf
-    command: ['./wait-for-it.sh', 'server1:3000', '--', './wait-for-it.sh', 'server2:3001', '--', 'nginx-debug', '-g', 'daemon off;']
+    command:
+      [
+        "./wait-for-it.sh",
+        "server1:3000",
+        "--",
+        "./wait-for-it.sh",
+        "server2:3001",
+        "--",
+        "nginx-debug",
+        "-g",
+        "daemon off;",
+      ]
   db_postgresql:
     image: postgres
     environment:
@@ -39,5 +50,5 @@ services:
       - "5432:5432"
   redis:
     image: redis
-    ports: 
+    ports:
       - "6379:6379"
