@@ -15,3 +15,8 @@ curl http://localhost:80
 ```
 psql -h localhost -p 5432 -U myuser -d exampledb
 ```
+## Leader Election?
+Use consensus algorithm, Paxos or Raft algorithm. Example of third-party leader election:
+- ZooKeeper
+- Etcd
+
