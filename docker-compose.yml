@@ -9,6 +9,8 @@ services:
       - PORT=3000
     ports:
       - "3000:3000"
+    depends_on:
+      - redis
   server2:
     build:
       context: ./backend
@@ -17,6 +19,8 @@ services:
       - PORT=3001
     ports:
       - "3001:3001"
+    depends_on:
+      - redis
   load_balancer:
     build:
       context: .
@@ -37,6 +41,9 @@ services:
         "-g",
         "daemon off;",
       ]
+    depends_on:
+      - server1
+      - server2
   db_postgresql:
     image: postgres
     environment:

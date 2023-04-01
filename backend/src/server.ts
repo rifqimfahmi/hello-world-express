@@ -1,6 +1,7 @@
-const express = require("express");
-const Redis = require("ioredis");
-const app = express();
+import Express, {Request, Response} from 'express'
+import { Redis } from 'ioredis';
+
+const app = Express();
 const port = process.env.PORT;
 
 const client = new Redis({ host: "redis", port: 6379 });
@@ -9,13 +10,13 @@ client.on("error", (err) => {
   console.error(err);
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   console.log(req.headers);
   console.log(`Hello port ${port}`);
   res.send("hello world");
 });
 
-app.get("/long-ops", (req, res) => {
+app.get("/long-ops", (req: Request, res: Response) => {
   client.get("long-ops", async (err, data) => {
     if (err) throw err;
     if (data != null) {
@@ -28,7 +29,7 @@ app.get("/long-ops", (req, res) => {
   });
 });
 
-app.get("/always-wait", async (req, res) => {
+app.get("/always-wait", async (req: Request, res: Response) => {
   return res.send(await fetchLongOpsData());
 });
 
