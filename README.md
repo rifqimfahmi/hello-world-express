@@ -20,3 +20,7 @@ Use consensus algorithm, Paxos or Raft algorithm. Example of third-party leader 
 - ZooKeeper
 - Etcd
 
+## Peer-to-peer
+- Gossip protocol?
+- DHT? Distributed Hash Tables
+- Kraken? https://github.com/uber/kraken.git
