@@ -24,3 +24,4 @@ Use consensus algorithm, Paxos or Raft algorithm. Example of third-party leader 
 - Gossip protocol?
 - DHT? Distributed Hash Tables
 - Kraken? https://github.com/uber/kraken.git
+- Torrent use P2P
